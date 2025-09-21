@@ -8,6 +8,12 @@ public class Drive : MonoBehaviour
     public float CurrentSpeed = 5f;
     public float SteerSpeed = 200f;
     public float StartSpeed = 5f;
+
+    public GameObject SingleMoney;
+    public GameObject DoubleMoney;
+    public GameObject Pizza;
+    public GameObject PizzaTop;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,7 +27,8 @@ public class Drive : MonoBehaviour
     }
 
     void Move()
-    { 
+    {
+        //fix orientation when car flips
         float move = Keyboard.current switch
         {
             { wKey: { isPressed: true } } or { upArrowKey: { isPressed: true } } => -1f,
@@ -41,5 +48,39 @@ public class Drive : MonoBehaviour
 
         transform.Translate(moveAmount, 0, 0);
         transform.Rotate(0, 0, steerAmount);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pizza"))
+        {
+            Pizza.SetActive(false);
+            PizzaTop.SetActive(true);
+        }
+        else if (collision.gameObject.CompareTag("SingleMoney"))
+        {
+            Destroy(collision.gameObject);
+            PizzaTop.SetActive(false);
+            SingleMoney.SetActive(true);
+            Pizza.SetActive(true);
+            Invoke("HideSingleMoney", 3f);
+        }
+        else if (collision.gameObject.CompareTag("DoubleMoney"))
+        {
+            Destroy(collision.gameObject);
+            PizzaTop.SetActive(false);
+            DoubleMoney.SetActive(true);
+            Pizza.SetActive(true);
+            Invoke("HideDoubleMoney", 3f);
+        }
+    }
+
+    void HideSingleMoney()
+    {
+        SingleMoney.SetActive(false);
+    }
+    void HideDoubleMoney()
+    {
+        DoubleMoney.SetActive(false);
     }
 }
