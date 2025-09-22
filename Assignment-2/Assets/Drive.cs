@@ -14,10 +14,12 @@ public class Drive : MonoBehaviour
     public GameObject Pizza;
     public GameObject PizzaTop;
 
+    private Vector3 _originalScale;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        _originalScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -48,6 +50,24 @@ public class Drive : MonoBehaviour
 
         transform.Translate(moveAmount, 0, 0);
         transform.Rotate(0, 0, steerAmount);
+
+        float zRotation = transform.eulerAngles.z;
+        if (zRotation > 180f)
+            zRotation -= 360f;
+
+        if (Mathf.Abs(zRotation) > 90)
+        {
+            transform.localScale = new Vector3(
+                _originalScale.x,
+                -Mathf.Abs(_originalScale.y),
+                _originalScale.z
+            );
+        }
+        else
+        {
+            transform.localScale = _originalScale;
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +79,7 @@ public class Drive : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("SingleMoney"))
         {
+            if (PizzaTop.activeSelf == false) return;
             Destroy(collision.gameObject);
             PizzaTop.SetActive(false);
             SingleMoney.SetActive(true);
@@ -67,6 +88,7 @@ public class Drive : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("DoubleMoney"))
         {
+            if (PizzaTop.activeSelf == false) return;
             Destroy(collision.gameObject);
             PizzaTop.SetActive(false);
             DoubleMoney.SetActive(true);
