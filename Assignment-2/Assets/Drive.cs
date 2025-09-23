@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Scripting.APIUpdating;
+using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UIElements;
 
 public class Drive : MonoBehaviour
 {
@@ -16,9 +18,14 @@ public class Drive : MonoBehaviour
 
     private Vector3 _originalScale;
 
+    public UIDocument uiDocument;
+    private Label scoreText;
+    private float _score = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
         _originalScale = transform.localScale;
     }
 
@@ -85,6 +92,8 @@ public class Drive : MonoBehaviour
             SingleMoney.SetActive(true);
             Pizza.SetActive(true);
             Invoke("HideSingleMoney", 3f);
+            _score += 10f;
+            scoreText.text = "Score: " + _score;
         }
         else if (collision.gameObject.CompareTag("DoubleMoney"))
         {
@@ -94,6 +103,8 @@ public class Drive : MonoBehaviour
             DoubleMoney.SetActive(true);
             Pizza.SetActive(true);
             Invoke("HideDoubleMoney", 3f);
+            _score += 20f;
+            scoreText.text = "Score: " + _score;
         }
     }
 
