@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3904825379220531611}
   m_Layer: 0
   m_Name: PizzaBox
-  m_TagString: Untagged
+  m_TagString: PizzaBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.5769815, y: -20.767065, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -138,12 +138,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.28774074, y: 0.1232225}
+    - - {x: -0.2756063, y: 0.14209853}
       - {x: -0.26096326, y: -0.008073017}
       - {x: -0.31, y: -0.15387073}
-      - {x: 0.29999998, y: -0.16}
+      - {x: 0.2838204, y: -0.15595509}
       - {x: 0.28548247, y: -0.13774051}
-      - {x: 0.31, y: -0.03}
+      - {x: 0.30595535, y: -0.04617943}
       - {x: 0.12096374, y: 0.12935176}
   m_UseDelaunayMesh: 0
 --- !u!50 &3904825379220531611
