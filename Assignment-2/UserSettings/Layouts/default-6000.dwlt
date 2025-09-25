@@ -75,7 +75,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 24
+  controlID: 16
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -437,7 +437,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/StarImage2
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -455,7 +455,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 52b90000
     m_LastClickedID: 47442
-    m_ExpandedIDs: 00000000b402000082c3000084c3000086c3000088c30000
+    m_ExpandedIDs: 00000000b4020000cccf0000cecf0000d0cf0000d2cf0000d4cf0000d6cf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -484,21 +484,21 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000b402000082c3000084c3000086c3000088c3000006c5000010c50000
+    m_ExpandedIDs: ffffffff00000000b4020000cccf0000cecf0000d0cf0000d2cf0000d4cf0000d6cf0000a8d10000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UILayout
-      m_OriginalName: UILayout
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 47688
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_TrimLeadingAndTrailingWhitespace: 0
       m_ClientGUIView: {fileID: 12}
@@ -1219,9 +1219,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 5.38178, y: -9.177519, z: -0.20875041}
+    m_Target: {x: -25.063753, y: -25.29527, z: -0.10146363}
     speed: 2
-    m_Value: {x: 5.38178, y: -9.177519, z: -0.20875041}
+    m_Value: {x: -25.063753, y: -25.29527, z: -0.10146363}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1271,9 +1271,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 21.510921
+    m_Target: 10.782256
     speed: 2
-    m_Value: 21.510921
+    m_Value: 10.782256
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1346,9 +1346,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 10f9ffff
-      m_LastClickedID: 0
-      m_ExpandedIDs: 04fbffff6cc00000
+      m_SelectedIDs: 04cf0000
+      m_LastClickedID: 52996
+      m_ExpandedIDs: e2f2ffffaefaffff00ce0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
