@@ -4,6 +4,7 @@ using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class Drive : MonoBehaviour
 {
@@ -36,6 +37,10 @@ public class Drive : MonoBehaviour
     private bool _hitPizza = false;
     private float _moneysCollected = 0f;
     private bool _beatLevel = false;
+    private List<int> _levelmoneys = new List<int> { 7, 15 };
+    private List<int> _level1cash = new List<int> {110, 100, 50, 25, 10};
+    private List<int> _level2cash = new List<int> { 230, 200, 150, 100, 50 };
+    private List<List<int>> _levelcash = new List<List<int>>();
     private Vector3 _originalScale;
 
     // ui elements
@@ -45,11 +50,15 @@ public class Drive : MonoBehaviour
     private Button restartButton;
     private Button startButton;
     private Label startText;
+    private Button continueButton;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _levelcash.Add(_level1cash);
+        _levelcash.Add(_level2cash);
+
         // initialize ui elements
         cashText = uiDocument.rootVisualElement.Q<Label>("CashLabel");
         feedbackText = uiDocument.rootVisualElement.Q<Label>("FeedbackLabel");
@@ -57,9 +66,25 @@ public class Drive : MonoBehaviour
         restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
         startButton = uiDocument.rootVisualElement.Q<Button>("StartButton");
         startText = uiDocument.rootVisualElement.Q<Label>("StartLabel");
+        continueButton = uiDocument.rootVisualElement.Q<Button>("ContinueButton");
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            startText.visible = true;
+            startButton.visible = true;
+            startText.text = "Welcome to Pizza Delivery Pro! Use WASD or the arrow keys to drive the car to deliver pizzas to all houses in the neighborhood! \n Level 1: Earn at least $50 to beat the level!";
+        }
+        else
+        {
+            startText.visible = true;
+            startButton.visible = true;
+            startText.text = "Level 2: \n Earn at least $150 to beat the level!";
+        }
 
         startButton.clicked += StartGame;
         restartButton.clicked += ReloadScene;
+        continueButton.clicked += NextLevel;
+        
 
         // get original scale of car
         _originalScale = transform.localScale;
@@ -74,50 +99,14 @@ public class Drive : MonoBehaviour
         // update cash text
         cashText.text = "$" + _cash;
 
-        // check for end of game
-        if (_moneysCollected == 15f)
+        // check for level completion
+        if (SceneManager.GetActiveScene().buildIndex == 0 && _moneysCollected == _levelmoneys[0])
         {
-            endText.visible = true;
-            cashText.visible = false;
-            feedbackText.visible = false;
-            // determine star rating based on cash amount and display it
-            if (_cash == 230f)
-            {
-                fiveStar.SetActive(true);
-                _beatLevel = true;
-            }
-            else if (_cash >= 200f)
-            {
-                fourStar.SetActive(true);
-                _beatLevel = true;
-            }
-            else if (_cash >= 150f)
-            {
-                threeStar.SetActive(true);
-                _beatLevel = true;
-            }
-            else if (_cash >= 100f)
-            {
-                twoStar.SetActive(true);
-            }
-            else if (_cash > 0f)
-            {
-                oneStar.SetActive(true);
-            }
-            else
-            {
-                zeroStar.SetActive(true);
-            }
-
-            restartButton.visible = true;
-            if (_beatLevel)
-            {
-                endText.text = "Congrats, you beat the level! You completed all deliveries and earned $" + _cash + ". Try again to earn a higher star rating by clicking the restart button below.";
-            }
-            else
-            {
-                endText.text = "You didn't earn at least $150 to beat the level. You completed all deliveries and earned $" + _cash + ". Try again by clicking the restart button below.";
-            }
+            EndLevel(0);
+        }
+        else if (SceneManager.GetActiveScene().buildIndex == 1 && _moneysCollected == _levelmoneys[1])
+        {
+            EndLevel(1);
         }
     }
 
@@ -265,7 +254,63 @@ public class Drive : MonoBehaviour
     {
         startButton.visible = false;
         startText.visible = false;
-        
+    }
+
+    void EndLevel(int level)
+    {
+        // display end level feedback
+        endText.visible = true;
+        cashText.visible = false;
+        feedbackText.visible = false;
+        restartButton.visible = true;
+
+        // determine star rating based on cash amount and display it
+        if (_cash == _levelcash[level][0])
+        {
+            fiveStar.SetActive(true);
+            _beatLevel = true;
+        }
+        else if (_cash >= _levelcash[level][1])
+        {
+            fourStar.SetActive(true);
+            _beatLevel = true;
+        }
+        else if (_cash >= _levelcash[level][2])
+        {
+            threeStar.SetActive(true);
+            _beatLevel = true;
+        }
+        else if (_cash >= _levelcash[level][3])
+        {
+            twoStar.SetActive(true);
+        }
+        else if (_cash > 0f)
+        {
+            oneStar.SetActive(true);
+        }
+        else
+        {
+            zeroStar.SetActive(true);
+        }
+
+        if (_beatLevel && level == 1)
+        {
+            endText.text = "Congrats, you beat the level! You completed all deliveries and earned $" + _cash + ". There are currently no further levels, but try this one again to earn a higher star rating by clicking the restart button below.";
+        }
+        else if (_beatLevel)
+        {
+            continueButton.visible = true;
+            endText.text = "Congrats, you beat the level! You completed all deliveries and earned $" + _cash + ". Press continue to move on to the next level, or restart this one to try to earn a higher star rating.";
+        }
+        else
+        {
+            endText.text = "You didn't earn enough cash to beat the level. You completed all deliveries and earned $" + _cash + ". Try again by clicking the restart button below.";
+        }
+    }    
+
+    void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     
     // when the restart button is clicked, reload the scene
