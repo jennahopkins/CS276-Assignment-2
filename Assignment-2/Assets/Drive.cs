@@ -34,6 +34,7 @@ public class Drive : MonoBehaviour
     private float _cash = 0f;
     private bool _hitPizza = false;
     private float _moneysCollected = 0f;
+    private bool _beatLevel = false;
     private Vector3 _originalScale;
 
     // ui elements
@@ -41,6 +42,8 @@ public class Drive : MonoBehaviour
     private Label cashText;
     private Label endText;
     private Button restartButton;
+    private Button startButton;
+    private Label startText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -51,6 +54,10 @@ public class Drive : MonoBehaviour
         feedbackText = uiDocument.rootVisualElement.Q<Label>("FeedbackLabel");
         endText = uiDocument.rootVisualElement.Q<Label>("EndLabel");
         restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+        startButton = uiDocument.rootVisualElement.Q<Button>("StartButton");
+        startText = uiDocument.rootVisualElement.Q<Label>("StartLabel");
+
+        startButton.clicked += StartGame;
         restartButton.clicked += ReloadScene;
 
         // get original scale of car
@@ -72,19 +79,21 @@ public class Drive : MonoBehaviour
             endText.visible = true;
             cashText.visible = false;
             feedbackText.visible = false;
-            endText.text = "You have completed all deliveries for this level and earned $" + _cash + "!";
             // determine star rating based on cash amount and display it
             if (_cash == 230f)
             {
                 fiveStar.SetActive(true);
+                _beatLevel = true;
             }
             else if (_cash >= 200f)
             {
                 fourStar.SetActive(true);
+                _beatLevel = true;
             }
             else if (_cash >= 150f)
             {
                 threeStar.SetActive(true);
+                _beatLevel = true;
             }
             else if (_cash >= 100f)
             {
@@ -98,12 +107,25 @@ public class Drive : MonoBehaviour
             {
                 zeroStar.SetActive(true);
             }
+
             restartButton.visible = true;
+            if (_beatLevel)
+            {
+                endText.text = "Congrats, you beat the level! You completed all deliveries and earned $" + _cash + ". Try again to earn a higher star rating by clicking the restart button below.";
+            }
+            else
+            {
+                endText.text = "You didn't earn at least $150 to beat the level. You completed all deliveries and earned $" + _cash + ". Try again by clicking the restart button below.";
+            }
         }
     }
 
     void Move()
     {
+        if (startButton.visible == true)
+        {
+            return;
+        }
         // move and steer based on keyboard input
         float move = Keyboard.current switch
         {
@@ -189,7 +211,6 @@ public class Drive : MonoBehaviour
                 feedbackText.text = "Successfully delivered Pizza! +$20";
             }
         }
-
     }
 
     // many colliders, only care about pizza boxes
@@ -236,6 +257,13 @@ public class Drive : MonoBehaviour
     {
         feedbackText.visible = false;
         _hitPizza = false;
+    }
+
+    void StartGame()
+    {
+        startButton.visible = false;
+        startText.visible = false;
+        
     }
     
     // when the restart button is clicked, reload the scene
