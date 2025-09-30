@@ -21,6 +21,7 @@ public class Drive : MonoBehaviour
     public GameObject PizzaTop;
     public UIDocument uiDocument;
     public ParticleSystem MoneyBoost;
+    public ParticleSystem PizzaBoost;
 
     [Header("Star Objects")]
     public GameObject zeroStar;
@@ -172,6 +173,7 @@ public class Drive : MonoBehaviour
         if (collision.gameObject.CompareTag("Pizza"))
         {
             Pizza.SetActive(false);
+            PizzaBoost.Play();
             PizzaTop.SetActive(true);
         }
         else if (collision.gameObject.CompareTag("SingleMoney") | collision.gameObject.CompareTag("DoubleMoney"))
