@@ -559,6 +559,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8317563130559393312, guid: cdcd9b15a8d63bd47af3198cd24e108b, type: 3}
   m_PrefabInstance: {fileID: 853811283}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &174059274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174059276}
+  - component: {fileID: 174059275}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &174059275
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174059274}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: eb7f10105313640a18ce7926041a4d76, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &174059276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174059274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.26848, y: -10.39667, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230552453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1639,7 @@ GameObject:
   - component: {fileID: 355748091}
   - component: {fileID: 355748090}
   m_Layer: 0
-  m_Name: PizzaBoost
+  m_Name: PizzaEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18787,7 +18916,7 @@ GameObject:
   - component: {fileID: 1797471548}
   - component: {fileID: 1797471552}
   - component: {fileID: 1797471551}
-  - component: {fileID: 1797471550}
+  - component: {fileID: 1797471553}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -18873,35 +19002,6 @@ Transform:
   - {fileID: 355748092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1797471550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797471547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29cc2c34b4709564e819b7c8269539f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  CurrentSpeed: 5
-  SteerSpeed: 150
-  StartSpeed: 5
-  BoostSpeed: 8
-  SingleMoney: {fileID: 411395071}
-  DoubleMoney: {fileID: 288904954}
-  Pizza: {fileID: 898059753}
-  PizzaTop: {fileID: 1655352061}
-  uiDocument: {fileID: 1890176727}
-  MoneyBoost: {fileID: 1740403857}
-  PizzaBoost: {fileID: 355748091}
-  zeroStar: {fileID: 1149256802}
-  oneStar: {fileID: 693792792}
-  twoStar: {fileID: 1849897323}
-  threeStar: {fileID: 245023768}
-  fourStar: {fileID: 1145384519}
-  fiveStar: {fileID: 420203193}
 --- !u!61 &1797471551
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18975,6 +19075,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1797471553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797471547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08650dcd2a3d5d24685185a06aecbc75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Drive
+  CurrentSpeed: 5
+  SteerSpeed: 200
+  StartSpeed: 5
+  BoostSpeed: 8
+  SingleMoney: {fileID: 411395071}
+  DoubleMoney: {fileID: 288904954}
+  Pizza: {fileID: 898059753}
+  PizzaTop: {fileID: 1655352061}
+  uiDocument: {fileID: 1890176727}
+  MoneyBoost: {fileID: 1740403857}
+  PizzaEffect: {fileID: 355748091}
+  audioSource: {fileID: 174059275}
+  MoneySound: {fileID: 8300000, guid: b0618c31e98831545b7b15245c9d3acc, type: 3}
+  PizzaSound: {fileID: 8300000, guid: ce2119fd8e1b3b0468ad8d4bb931cfe5, type: 3}
+  CrashSound: {fileID: 8300000, guid: 01d85996366685d4b9acc502fdef6680, type: 3}
+  LevelFailed: {fileID: 8300000, guid: 4c660531c7a382a469a8c6eebb0e3b8b, type: 3}
+  LevelComplete: {fileID: 8300000, guid: 7184a8633e3c4e345a3a491ee85a7e82, type: 3}
+  zeroStar: {fileID: 1149256802}
+  oneStar: {fileID: 693792792}
+  twoStar: {fileID: 1849897323}
+  threeStar: {fileID: 245023768}
+  fourStar: {fileID: 1145384519}
+  fiveStar: {fileID: 420203193}
 --- !u!1 &1817934624
 GameObject:
   m_ObjectHideFlags: 0
@@ -20856,3 +20991,4 @@ SceneRoots:
   - {fileID: 898059756}
   - {fileID: 1340513325}
   - {fileID: 310172451}
+  - {fileID: 174059276}
