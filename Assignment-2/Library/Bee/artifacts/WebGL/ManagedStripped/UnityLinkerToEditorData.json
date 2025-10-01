@@ -80,7 +80,9 @@
           },
           {
             "name": "AudioClip",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/Level 1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -101,13 +103,17 @@
           },
           {
             "name": "AudioResource",
-            "scenes": [],
-            "dependencyType": 1,
+            "scenes": [
+              "Assets/Scenes/Level 1.unity"
+            ],
+            "dependencyType": 0,
             "icon": null
           },
           {
             "name": "AudioSource",
-            "scenes": [],
+            "scenes": [
+              "Assets/Scenes/Level 1.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },

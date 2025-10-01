@@ -200,6 +200,7 @@ UnityEngine.Audio.AudioPlayableOutput::InternalSetTarget_Injected
 UnityEngine.AudioClip::get_frequency_Injected
 UnityEngine.AudioClip::get_samples_Injected
 UnityEngine.AudioClip::get_length_Injected
+UnityEngine.AudioSource::PlayOneShotHelper_Injected
 UnityEngine.Avatar::get_humanDescription_Injected
 UnityEngine.AvatarMask::GetHumanoidBodyPartActive_Injected
 UnityEngine.AvatarMask::get_transformCount_Injected
