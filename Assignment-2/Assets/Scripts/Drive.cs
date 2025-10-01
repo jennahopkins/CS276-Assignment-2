@@ -5,6 +5,7 @@ using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class Drive : MonoBehaviour
 {
@@ -64,6 +65,7 @@ public class Drive : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // initialize level cash requirements
         _levelcash.Add(_level1cash);
         _levelcash.Add(_level2cash);
 
@@ -76,6 +78,7 @@ public class Drive : MonoBehaviour
         startText = uiDocument.rootVisualElement.Q<Label>("StartLabel");
         continueButton = uiDocument.rootVisualElement.Q<Button>("ContinueButton");
 
+        // determine which level the user is on and display appropriate start text
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             startText.visible = true;
@@ -89,6 +92,7 @@ public class Drive : MonoBehaviour
             startText.text = "Level 2: \n Earn at least $150 to beat the level!";
         }
 
+        // functions to run when buttons are clicked
         startButton.clicked += StartGame;
         restartButton.clicked += ReloadScene;
         continueButton.clicked += NextLevel;
@@ -120,6 +124,7 @@ public class Drive : MonoBehaviour
 
     void Move()
     {
+        // do not allow movement if the user has not pressed start
         if (startButton.visible == true)
         {
             return;
@@ -304,6 +309,7 @@ public class Drive : MonoBehaviour
             zeroStar.SetActive(true);
         }
 
+        // display different end text and options based on level completion status
         if (_beatLevel && level == 1)
         {
             endText.text = "Congrats, you beat the level! You completed all deliveries and earned $" + _cash + ". There are currently no further levels, but try this one again to earn a higher star rating by clicking the restart button below.";
@@ -322,6 +328,7 @@ public class Drive : MonoBehaviour
         }
     }    
 
+    // when the continue button is clicked, load the next scene
     void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
