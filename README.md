@@ -1,7 +1,7 @@
 # Pizza Delivery Pro
 
 ## Play the Game
-**Unity Play Link**: [Your Unity Play URL]
+**Unity Play Link**: https://play.unity.com/en/games/af0c6056-0dfc-47ee-8e8c-8e89348b2f8b/pizza-delivery-pro
 
 ## Game Description
 In Pizza Delivery Pro, players aim to earn the most cash possible by delivering pizzas to houses in a neighborhood while avoiding old pizza boxes on the road. Players win the level by earning some specified amount of cash after completing all the deliveries, and lose if they earn less than the required amount. Houses with two bills in front of them will pay $20 for a pizza delivery, while houses with one bill in front of them will pay $10 for a pizza delivery. Players must deliver pizzas to every house before the level ends and decides if they win or lose. If players hit an old pizza box in the road, they will lose $5 to repair the damage to their car from the hit.
@@ -35,16 +35,16 @@ What makes this game engaging and fun is the simulation aspect of it and the eas
     This game will be released as a web-build so it is able to be played on a web browser online at Unity Play.
 
 ## Future Development Plan
-
+To develop this game further, I would add additional levels with increased difficulty. The pizza boxes in the road could be bigger so players have to be more careful driving as to not hit them. The amounts of cash that each house gives could be decreased as well so that players do not have as much cash they can afford to lose. I could also keep track of how much cash a player has earned in their lifetime, and they could exchange some of it for 'upgrades' to their pizza parlor or delivery car. These upgrades could include greater speed, smaller size, able to hold multiple pizzas at once or other ways players can make the game easier for them and expand the storyline. Another challenge I could implement as players get deeper into the game is a timer that players have to complete all deliveries under. This would make it so that players are put under pressure in a time constraint and cannot take their time going around all the pizza boxes in the road as they could with no timer. One other extension could be to make players have to deliver each pizza to a certain house in a predefined order, which would make the game more challenging than being able to deliver to any house as it is right now. This would also make the game more realistic and add to the storyline aspect. All of these ideas would help make this small, two-level game into a full-fledged game with many levels and features that will make it that much more enjoyable for players.
 
 
 ## Development Reflection
-    The most difficult part of this assignment was controlling all of the game objects in the scene at once. For the background alone, there are so many assets I needed to place to make the scene appear detailed. Prefabs made this easier, but it is hard to prefab things like houses that all have different positions and are different images. Once the background was completed, the movement of the car made an interesting challenge that the image would rotate 360 degrees and look like the car was driving upside-down. I had to figure out a way to make it flip orientation once it reached a certain degree to make it not go upside-down and look more realistic.
-    Overall, as I completed this assignment I learned more about how the physics of the sprites work and how to control it to make the sprites do what I want (like the car example above). I also learned how to modify the UI elements in greater detail, like how I made the star system and occasional feedback the players would get that doesn't show up in a specific position in the scene, but a specific position on the screen. Lastly, I learned about triggers and how to set an object to a trigger, tag it, and control it from the script. Next time, I would probably try to work out all of the logistics of my game before starting to develop it. I was not really sure where I wanted to go with it when I started it and thought that if I at least got the basic mechanics down then I could go from there, but it led to me having to go back and switch some elements because I hadn't originally developed them with future use in mind. If I had sat down and written down all of the details of the game that I wanted to implement before I started, I think it would have saved me a lot of time and effort that I had lost to going back and changing what I had originally implemented for the start of my idea.
+The most difficult part of this assignment was controlling all of the game objects in the scene at once. For the background alone, there are so many assets I needed to place to make the scene appear detailed. Prefabs made this easier, but it is hard to prefab things like houses that all have different positions and are different images. Once the background was completed, the movement of the car made an interesting challenge that the image would rotate 360 degrees and look like the car was driving upside-down. I had to figure out a way to make it flip orientation once it reached a certain degree to make it not go upside-down and look more realistic.
+Overall, as I completed this assignment I learned more about how the physics of the sprites work and how to control it to make the sprites do what I want (like the car example above). I also learned how to modify the UI elements in greater detail, like how I made the star system and occasional feedback the players would get that doesn't show up in a specific position in the scene, but a specific position on the screen. Lastly, I learned about triggers and how to set an object to a trigger, tag it, and control it from the script. Next time, I would probably try to work out all of the logistics of my game before starting to develop it. I was not really sure where I wanted to go with it when I started it and thought that if I at least got the basic mechanics down then I could go from there, but it led to me having to go back and switch some elements because I hadn't originally developed them with future use in mind. If I had sat down and written down all of the details of the game that I wanted to implement before I started, I think it would have saved me a lot of time and effort that I had lost to going back and changing what I had originally implemented for the start of my idea.
 
 
 ## Limitations
-- [List any limitations]
+- Due to time, collider boundaries are not completely exact, there many be some instances where the car appears to be driving on the edge of the road, but it is still fully functional.
 
 
 ## Credits
@@ -55,6 +55,12 @@ What makes this game engaging and fun is the simulation aspect of it and the eas
 - Empty Pizza Box Sprite Image: "Recycle items set" by Clint Bellanger on OpenGameArt.org
 - Stars Sprite Image: "Stars Icon for UI" by Alexander123 on OpenGameArt.org
 - Neighborhood roads, trees, rocks, houses, fences, and bushes from Professor Cordova's "CarAssets" in Canvas
+- Purchase Sound Effect: "JRPG Style UI Sounds" by KillaMaaki on OpenGameArt.org
+- Run over pizza box sound effect: "Crash Collision" by qubodup on OpenGameArt.org
+- Pick up pizza sound effect: "Beep Tone Sound SFX" by qubodup on OpenGameArt.org
+- Lose Level Sound Effect: "Game Over Sound(Old School) by den_yes on OpenGameArt.org
+- Win Level Sound Effect: "Applause" by Blender Foundation on OpenGameArt.org
+- Background Music: "Free - Casual & Relaxing Game Music Pack" by SLD Audio on Unity Asset Store
 
 
 ## Development Notes
