@@ -14000,6 +14000,7 @@ MonoBehaviour:
   PizzaTop: {fileID: 1655352061}
   uiDocument: {fileID: 1890176727}
   MoneyBoost: {fileID: 1740403857}
+  PizzaBoost: {fileID: 0}
   zeroStar: {fileID: 1149256802}
   oneStar: {fileID: 693792792}
   twoStar: {fileID: 1849897323}
